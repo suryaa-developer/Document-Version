@@ -1,5 +1,6 @@
 package com.Document.DocAudit.entity;
 
+import com.Document.DocAudit.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
