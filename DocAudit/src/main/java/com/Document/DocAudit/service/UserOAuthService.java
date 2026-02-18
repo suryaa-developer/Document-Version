@@ -1,7 +1,7 @@
 package com.Document.DocAudit.service;
 
 import com.Document.DocAudit.entity.UserEntity;
-import com.Document.DocAudit.entity.UserStatus;
+import com.Document.DocAudit.enums.UserStatus;
 import com.Document.DocAudit.repository.UserRepository;
 import com.Document.DocAudit.securityConfig.CustomUserPrincipal;
 import jakarta.transaction.Transactional;
@@ -48,6 +48,10 @@ public class UserOAuthService extends OidcUserService {
                             newUser.setStatus(UserStatus.ACTIVE);
                             return  newUser;
                         });
+        if (user.getStatus() == UserStatus.INACTIVE) {
+            throw new OAuth2AuthenticationException("User account is blocked");
+        }
+
         user.setEmail(email);
         user.setName(name);
         user.setPictureUrl(picture);
