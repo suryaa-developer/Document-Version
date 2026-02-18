@@ -1,4 +1,4 @@
-package com.Document.DocAudit.entity;
+package com.Document.DocAudit.enums;
 
 public enum UserStatus {
     ACTIVE,
