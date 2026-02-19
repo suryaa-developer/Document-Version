@@ -1,5 +1,6 @@
 package com.Document.DocAudit.entity;
 
+import com.Document.DocAudit.enums.DocumentStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -10,14 +11,15 @@ import java.time.LocalDateTime;
 public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long Id;
 
-    private String title;
-    @Column(columnDefinition = "TEXT")
-    private String content;
+    private String Title;
+    @Lob
+    private String Content;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by")
-    private UserEntity createdBy;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    private UserEntity CreatedBy;
+    private LocalDateTime CreatedAt;
+    private LocalDateTime UpdatedAt;
+    private DocumentStatus Status;
 }
