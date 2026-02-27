@@ -1,8 +1,8 @@
 package com.Document.DocAudit.dto;
 
+import com.Document.DocAudit.enums.UserStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -15,4 +15,5 @@ public class UserResponse {
     private String name;
     private String pictureUrl;
     private String provider;
+    private UserStatus status;
 }
