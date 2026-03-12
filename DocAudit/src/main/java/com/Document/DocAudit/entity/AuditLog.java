@@ -18,7 +18,9 @@ public class AuditLog {
     @JoinColumn(name = "created_by")
     private UserEntity ModifiedBy;
     private DocumentAction Action;
+    @Lob
     private String PreviousContent;
+    @Lob
     private String NewContent;
     private LocalDateTime ModifiedAt;
 }
